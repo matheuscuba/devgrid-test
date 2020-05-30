@@ -1,0 +1,44 @@
+@import './../../assets/sass/variables';
+
+.book {
+    display: flex;
+    width: 33%;
+    margin-bottom: 3rem;
+    // background-color: red;
+
+    .cover {
+        flex: 1;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 265px;
+    }
+
+    .details {
+        padding: 0 1.5rem;
+        flex: 2;
+        color: $white;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .author {
+            font-size: 20px;
+            font-weight: normal;
+            margin: 0;
+            color: $gray;
+        }
+
+        .description {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 15px 0 0 0;
+            flex: 2;
+        }
+    }
+}

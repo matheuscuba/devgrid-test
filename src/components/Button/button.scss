@@ -1,0 +1,25 @@
+@import './../../assets/sass/variables';
+
+.btn {
+    border: 2px solid $dark;
+    outline: none;
+    background-color: transparent;
+    height: 41px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 300;
+    cursor: pointer;
+    color: $white;
+    transition: 0.15s;
+
+    &:hover {
+        background-color: $dark;
+    }
+
+    &.active {
+        background-color: $green;
+    }
+}
