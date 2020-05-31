@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import CacheRoute, {CacheSwitch} from 'react-router-cache-route';
 import {MyLibrary, Report, ReadBooks} from './pages';
 
 import Wrapper from './components/Wrapper';
@@ -12,11 +13,11 @@ function App() {
         <Wrapper>
             <Router>
                 <Nav />
-                <Switch>
-                    <Route path="/report" component={Report} />
-                    <Route path="/read-books" component={ReadBooks} />
+                <CacheSwitch>
+                    <CacheRoute exact path="/report" component={Report} />
+                    <Route exact path="/read-books" component={ReadBooks} />
                     <Route path="/" component={MyLibrary} />
-                </Switch>
+                </CacheSwitch>
             </Router>
         </Wrapper>
     );

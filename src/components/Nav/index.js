@@ -26,7 +26,7 @@ class Nav extends Component {
             <nav className="nav">
                 <ul>
                     {menu.map((item, index) => (
-                        <li>
+                        <li key={`nav-${index}`}>
                             <Link
                                 to={item.path}
                                 onClick={() => this.toggleActive(index)}

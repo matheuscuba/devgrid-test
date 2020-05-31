@@ -4,7 +4,9 @@ import './button.scss';
 
 function Button(props) {
     return (
-        <button className={props.read ? 'btn active' : 'btn'}>
+        <button
+            onClick={props.onClick}
+            className={props.active ? 'btn active' : 'btn'}>
             {props.children}
         </button>
     );
