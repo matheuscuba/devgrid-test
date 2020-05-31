@@ -1,4 +1,6 @@
 import axios from 'axios';
+import qs from 'qs';
+
 const OpenLibraryAPI = axios.create({
     baseURL: 'https://openlibrary.org/',
     responseEncoding: 'utf8',
@@ -7,8 +9,14 @@ const OpenLibraryAPI = axios.create({
 
 const OpenLibrary = {};
 
-OpenLibrary.getBookList = () => {
-    return OpenLibraryAPI.get('people/violet_frost/lists/OL127353L/seeds.json');
+OpenLibrary.getBookList = (category = 'fiction') => {
+    let params = {
+        limit: 30,
+    };
+
+    params = qs.stringify(params);
+
+    return OpenLibraryAPI.get(`subjects/${category}.json?${params}`);
 };
 
 export default OpenLibrary;

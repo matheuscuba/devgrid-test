@@ -12,8 +12,8 @@ class MyLibrary extends Component {
     constructor(props) {
         super(props);
 
-        OpenLibrary.getBookList().then(({data}) => {
-            this.setState({books: data.entries});
+        OpenLibrary.getBookList('science_fiction').then(({data}) => {
+            this.setState({books: data.works});
         });
     }
 
@@ -23,7 +23,11 @@ class MyLibrary extends Component {
         return (
             <Page>
                 {books.map((item, index) => (
-                    <Book item={item} index={index} />
+                    <Book
+                        item={item}
+                        cover={`http://covers.openlibrary.org/b/id/${item.cover_id}-M.jpg`}
+                        index={index}
+                    />
                 ))}
             </Page>
         );
