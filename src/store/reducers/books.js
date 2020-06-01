@@ -13,6 +13,7 @@ const initialState = {
     subject: [],
     data: [],
     loading: false,
+    loadingMessage: '',
 };
 
 export default function reducer(state = initialState, action) {
@@ -21,17 +22,20 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 loading: true,
+                loadingMessage: 'Searching books from subject...',
             };
         case GET_BOOKS:
             return {
                 ...state,
                 loading: true,
+                loadingMessage: 'Getting books details...',
             };
         case GET_BOOKS_SUCCESS:
             return {
                 ...state,
                 data: Object.values(action.payload.data),
                 loading: false,
+                loadingMessage: '',
             };
         case UPDATE_BOOKS:
             console.log('action.payload.books', action.payload.books);

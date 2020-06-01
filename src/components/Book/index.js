@@ -4,6 +4,16 @@ import './book.scss';
 import Button from '../Button';
 
 class Book extends Component {
+    // state = {
+    //     visible: false,
+    // };
+
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({visible: true});
+    //     }, 100);
+    // }
+
     render() {
         const item = this.props.item;
 
@@ -22,7 +32,9 @@ class Book extends Component {
                 'https://via.placeholder.com/176x265/7a8c99/fff?text=%20%20No+Cover';
 
         return (
-            <div className="book">
+            <div
+                className="book"
+                style={{animationDelay: this.props.index * 60 + 'ms'}}>
                 <div
                     className="cover"
                     style={{backgroundImage: `url('${cover}')`}}></div>
@@ -31,11 +43,12 @@ class Book extends Component {
                     <h5 className="author">{authors}</h5>
                     <h5 className="year">Publish Date: {item.publish_date}</h5>
                     <p className="description">{description}</p>
-                    <Button
-                        active={this.props.read}
-                        onClick={this.props.onClick}>
-                        {this.props.read ? 'READ' : 'MARK AS READ'}
-                    </Button>
+                    {this.props.showButton !== false ? (
+                        <Button
+                            active={this.props.read}
+                            onClick={this.props.onClick}
+                        />
+                    ) : null}
                 </div>
             </div>
         );

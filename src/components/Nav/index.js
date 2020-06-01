@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 import './nav.scss';
 
@@ -11,6 +11,15 @@ class Nav extends Component {
             {label: 'REPORT', path: '/report'},
         ],
     };
+
+    componentDidMount() {
+        let pathname = this.props.location.pathname;
+        let menu = this.state.menu.map((item) => ({
+            ...item,
+            active: item.path === pathname,
+        }));
+        this.setState({menu});
+    }
 
     toggleActive(index) {
         let {menu} = this.state;
@@ -41,4 +50,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default withRouter(Nav);

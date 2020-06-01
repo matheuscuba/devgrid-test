@@ -7,7 +7,11 @@ import {
     getBooksSubject,
     updateBooks,
 } from './../../store/reducers/books';
+import LoadingIcon from '../../components/LoadingIcon';
 
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 class MyLibrary extends Component {
     state = {
         books: [],
@@ -16,8 +20,8 @@ class MyLibrary extends Component {
     toggleBook(index) {
         let books = this.props.books;
         books[index].read = !books[index].read;
+        books[index].readDate = new Date(2020, randomInteger(1, 12), 1);
         this.props.updateBooks(books);
-        this.forceUpdate();
     }
 
     componentDidMount() {
@@ -44,9 +48,13 @@ class MyLibrary extends Component {
 
         return (
             <Page>
+                {this.props.loading ? (
+                    <LoadingIcon message={this.props.message} />
+                ) : null}
                 {books.map((item, index) => (
                     <Book
                         key={`book-${index}-${item.read}`}
+                        index={index}
                         item={item.details}
                         cover={item.thumbnail_url?.replace('-S', '-M')}
                         read={item.read}
@@ -60,6 +68,8 @@ class MyLibrary extends Component {
 
 const mapStateToProps = ({books}) => ({
     books: books.data,
+    loading: books.loading,
+    message: books.loadingMessage,
 });
 
 const mapDispatchToProps = {

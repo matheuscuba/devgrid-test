@@ -1,0 +1,28 @@
+@import './../../assets/sass/variables';
+
+.report-page {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.report-info-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.report-info {
+    display: flex;
+    margin: 1rem 0;
+    width: 400px;
+
+    span {
+        flex: 2;
+    }
+}
+
+.months-wrapper {
+    margin-top: 2rem;
+}

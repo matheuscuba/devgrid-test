@@ -1,0 +1,22 @@
+@import './../../assets/sass/variables';
+
+.loading-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+        fill: $white;
+    }
+
+    h4 {
+        font-weight: lighter;
+        font-size: 20px;
+        margin: 1rem 0 0 0;
+    }
+}

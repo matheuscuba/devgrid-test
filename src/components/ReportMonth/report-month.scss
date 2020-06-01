@@ -1,0 +1,19 @@
+@import './../../assets/sass/variables';
+
+.report-month {
+    width: 100%;
+
+    .month-title {
+        color: $white;
+        font-size: 35px;
+        font-weight: 400;
+        margin: 0;
+    }
+
+    .month-subtitle {
+        margin: 0.5rem 0 2rem;
+        color: $gray;
+        font-size: 24px;
+        font-weight: lighter;
+    }
+}

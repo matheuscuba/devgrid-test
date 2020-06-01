@@ -17,14 +17,22 @@ class ReadBooks extends Component {
 
         return (
             <Page>
-                {books.map((item, index) => (
-                    <Book
-                        item={item.details}
-                        cover={item.thumbnail_url?.replace('-S', '-M')}
-                        read={item.read}
-                        key={index}
-                    />
-                ))}
+                {books.length ? (
+                    books.map((item, index) => (
+                        <Book
+                            item={item.details}
+                            index={index}
+                            cover={item.thumbnail_url?.replace('-S', '-M')}
+                            read={item.read}
+                            showButton={false}
+                            key={index}
+                        />
+                    ))
+                ) : (
+                    <h2 className="color-white font-light">
+                        You haven't read any book yet :(
+                    </h2>
+                )}
             </Page>
         );
     }
