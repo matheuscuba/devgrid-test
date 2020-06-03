@@ -12,7 +12,7 @@ const persistConfig = {
     key: 'root',
     storage: storage,
     stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
-    // blacklist: ['books'],
+    blacklist: ['books'],
 };
 
 const pReducer = persistReducer(persistConfig, reducers);

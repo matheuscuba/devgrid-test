@@ -1,0 +1,23 @@
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+    -webkit-transition: $what $time $how;
+    -moz-transition: $what $time $how;
+    -ms-transition: $what $time $how;
+    -o-transition: $what $time $how;
+    transition: $what $time $how;
+}
+
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media (min-width: 1366px) {
+            @content;
+        }
+    } @else if $point == laptop {
+        @media (min-width: 64em) and (max-width: 1366px) {
+            @content;
+        }
+    } @else if $point == mobile {
+        @media (max-width: 37.5em) {
+            @content;
+        }
+    }
+}

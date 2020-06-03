@@ -1,16 +1,28 @@
 @import './../../assets/sass/variables';
+@import './../../assets/sass/mixins';
 
 .nav {
     width: 100%;
     margin-bottom: 4rem;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 1rem;
+    }
+
     ul {
         list-style: none;
         padding: 0;
+        width: 100%;
+
         li {
             display: inline-block;
 
             &:not(:first-child) {
                 margin-left: 3rem;
+
+                @include breakpoint(mobile) {
+                    margin: 0;
+                }
             }
 
             a {

@@ -1,4 +1,5 @@
 @import './../../assets/sass/variables';
+@import './../../assets/sass/mixins';
 
 .book {
     display: flex;
@@ -9,11 +10,21 @@
     animation: slide-up 0.4s ease;
     animation-fill-mode: forwards;
 
+    @include breakpoint(laptop) {
+        width: 48%;
+    }
+
+    @include breakpoint(mobile) {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
     .cover {
         flex: 1;
         background-repeat: no-repeat;
         background-size: cover;
         background-color: $gray;
+        background-position: 50% 50%;
         height: 265px;
     }
 
@@ -25,10 +36,19 @@
         display: flex;
         flex-direction: column;
 
+        @include breakpoint(mobile) {
+            padding: 0 1rem;
+            flex: 1;
+        }
+
         .title {
             font-size: 28px;
             font-weight: bold;
             margin: 0;
+
+            @include breakpoint(mobile) {
+                font-size: 21px;
+            }
         }
 
         .author {
@@ -36,12 +56,22 @@
             font-weight: normal;
             margin: 0;
             color: $gray;
+            margin: 5px 0 0 0;
+
+            @include breakpoint(mobile) {
+                font-size: 16px;
+            }
         }
 
         .year {
             font-size: 16px;
             font-weight: normal;
             margin: 20px 0 0 0;
+
+            @include breakpoint(mobile) {
+                margin: 10px 0 0 0;
+                font-size: 12px;
+            }
         }
 
         .description {
@@ -49,6 +79,11 @@
             font-weight: normal;
             margin: 15px 0 0 0;
             flex: 2;
+
+            @include breakpoint(mobile) {
+                font-size: 12px;
+                margin: 5px 0 0 0;
+            }
         }
     }
 }

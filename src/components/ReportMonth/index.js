@@ -16,9 +16,7 @@ function ReportMonth(props) {
                     <Book
                         key={`book-${index}-${item.read}`}
                         index={index}
-                        item={item.details}
-                        cover={item.thumbnail_url?.replace('-S', '-M')}
-                        read={item.read}
+                        item={item}
                         showButton={false}
                         onClick={() => this.toggleBook(index)}
                     />

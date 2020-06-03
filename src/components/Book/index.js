@@ -4,28 +4,19 @@ import './book.scss';
 import Button from '../Button';
 
 class Book extends Component {
-    // state = {
-    //     visible: false,
-    // };
-
-    // componentDidMount() {
-    //     setTimeout(() => {
-    //         this.setState({visible: true});
-    //     }, 100);
-    // }
-
     render() {
         const item = this.props.item;
+        const details = item.details;
 
-        let authors = item.authors?.map((author) => author.name).join(', ');
-        let description = item.description?.value;
+        let authors = details.authors?.map((author) => author.name).join(', ');
+        let description = details.description?.value;
 
         if (description)
             description =
                 description.slice(0, 120) +
                 (description.length > 120 ? '...' : '');
 
-        let cover = this.props.cover;
+        let cover = item.thumbnail_url?.replace('-S', '-M');
 
         if (!cover)
             cover =
@@ -39,13 +30,15 @@ class Book extends Component {
                     className="cover"
                     style={{backgroundImage: `url('${cover}')`}}></div>
                 <div className="details">
-                    <h4 className="title">{item.title}</h4>
+                    <h4 className="title">{details.title}</h4>
                     <h5 className="author">{authors}</h5>
-                    <h5 className="year">Publish Date: {item.publish_date}</h5>
+                    <h5 className="year">
+                        Publish Date: {details.publish_date}
+                    </h5>
                     <p className="description">{description}</p>
                     {this.props.showButton !== false ? (
                         <Button
-                            active={this.props.read}
+                            active={item.read}
                             onClick={this.props.onClick}
                         />
                     ) : null}

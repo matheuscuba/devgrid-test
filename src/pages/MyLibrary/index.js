@@ -55,9 +55,7 @@ class MyLibrary extends Component {
                     <Book
                         key={`book-${index}-${item.read}`}
                         index={index}
-                        item={item.details}
-                        cover={item.thumbnail_url?.replace('-S', '-M')}
-                        read={item.read}
+                        item={item}
                         onClick={() => this.toggleBook(index)}
                     />
                 ))}

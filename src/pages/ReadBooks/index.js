@@ -20,16 +20,14 @@ class ReadBooks extends Component {
                 {books.length ? (
                     books.map((item, index) => (
                         <Book
-                            item={item.details}
+                            item={item}
                             index={index}
-                            cover={item.thumbnail_url?.replace('-S', '-M')}
-                            read={item.read}
                             showButton={false}
                             key={index}
                         />
                     ))
                 ) : (
-                    <h2 className="color-white font-light">
+                    <h2 className="color-white font-light empty">
                         You haven't read any book yet :(
                     </h2>
                 )}
