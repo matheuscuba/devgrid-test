@@ -12,6 +12,7 @@ import LoadingIcon from '../../components/LoadingIcon';
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 class MyLibrary extends Component {
     state = {
         books: [],
@@ -20,7 +21,7 @@ class MyLibrary extends Component {
     toggleBook(index) {
         let books = this.props.books;
         books[index].read = !books[index].read;
-        books[index].readDate = new Date(2020, randomInteger(1, 12), 1);
+        books[index].readDate = new Date(2020, randomInteger(1, 12), 1); //O mês é aleatorio para deixar os resultados do Report mais dinâmicos
         this.props.updateBooks(books);
     }
 

@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Book from '../../components/Book';
-import Page from '../../components/Page';
 import {connect} from 'react-redux';
 
 import './report.scss';

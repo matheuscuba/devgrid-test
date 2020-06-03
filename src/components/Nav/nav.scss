@@ -30,7 +30,8 @@
                 font-size: 45px;
                 font-weight: lighter;
                 text-decoration: none;
-                transition: 0.2s;
+
+                @include transition(0.2s);
 
                 &.active {
                     color: $white;

@@ -11,8 +11,7 @@ export const reducers = combineReducers({books});
 const persistConfig = {
     key: 'root',
     storage: storage,
-    stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
-    blacklist: ['books'],
+    stateReconciler: autoMergeLevel2,
 };
 
 const pReducer = persistReducer(persistConfig, reducers);

@@ -14,7 +14,8 @@
     font-weight: 300;
     cursor: pointer;
     color: $white;
-    transition: 0.15s;
+
+    @include transition(0.15s);
 
     &:hover {
         background-color: $dark;
